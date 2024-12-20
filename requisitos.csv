@@ -1,0 +1,14 @@
+- Funcionais
+
+***** Setup
+- Cria pastas DTO / Schemas / coments
+   - pasta coments:
+      - create module / service / controller
+   - pasta DTO:
+      - Class com 3 parametros
+      
+
+- MongoDB
+   - Install no projeto CLI (npm i @nestjs/mongoose mongoose)
+
+- DTO
