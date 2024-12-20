@@ -6,9 +6,11 @@
       - create module / service / controller
    - pasta DTO:
       - Class com 3 parametros
-      
+
 
 - MongoDB
    - Install no projeto CLI (npm i @nestjs/mongoose mongoose)
+   - Alterações nos dois arquivos Module para fazer a conexão com mongoDB cloud
+   - 
 
 - DTO
