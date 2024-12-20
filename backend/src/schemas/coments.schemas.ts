@@ -2,9 +2,7 @@
 import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose'
 
 // Schemas para armazenamento no MongoDB
-@Schema({
-   timestamps: true
-})
+@Schema({})
 
 // Formato de dados para o MongoDB
 export class Comentario {

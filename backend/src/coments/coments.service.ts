@@ -21,7 +21,7 @@ export class ComentsService {
    async findAll() {
       try {
          const todosComentarios = await this.comentarioModel.find();
-         return todosComentarios
+         return todosComentarios 
       } catch (error) {
          throw new Error(`Erro ao buscar os comentários: ${error.message}`)
       }
@@ -40,6 +40,9 @@ export class ComentsService {
    // Criar comentarios POST - seguindo DTO de criar comentário
    async create(criaComentario: CriaComentarioDTO) {
       try {
+         if (!criaComentario.sentimento) {
+            criaComentario.sentimento = "Neutro";
+         }
          const novoComentario = new this.comentarioModel(criaComentario);
          return await novoComentario.save();
       } catch (error) {
