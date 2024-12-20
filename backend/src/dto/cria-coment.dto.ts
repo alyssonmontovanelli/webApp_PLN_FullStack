@@ -1,7 +1,7 @@
-import { IsDate, IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import { IsDate, IsNotEmpty, IsOptional, IsString, IsIn } from 'class-validator';
 
 // Data object Transform
-export class CriaComentario {
+export class CriaComentarioDTO {
 
    @IsString()
    @IsNotEmpty()
@@ -12,6 +12,8 @@ export class CriaComentario {
    dataHora: Date;
 
    @IsOptional()
+   @IsString()
+   @IsIn(["Positivo", "Neutro", "Negativo"])
    sentimento: string;
 
 }
