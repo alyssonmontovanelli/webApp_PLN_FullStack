@@ -4,7 +4,8 @@ import FeedComentarios from "./components/FeedComents"
 function App() {
 
   return (
-    <div id="divCentral" className="bg-slate-900 text-gray-100 max-h-full">
+    <div id="divCentral" 
+    className="bg-slate-900 text-gray-100 max-h-full">
 
       {/* {/* Div 1 Caixa de texto */}
       <div>
@@ -20,7 +21,7 @@ function App() {
         </div> */}
 
         {/* FEED DE COMENTÁRIOS */}
-        <div className="">
+        <div>
           <FeedComentarios />
         </div>
       </div>

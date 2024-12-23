@@ -17,13 +17,15 @@ function FeedComentarios() {
    }, [])
    return (
       <div className="relative max-w-5xl mx-auto p-10">
-         <h1 className="mb-6 text-2xl font-bold">Feed de Comentários</h1>
-         {comentario.map((coment) => (
-            <ComentarioUnico comentario = {coment} key={coment._id}/>
-         ))}
+         <h1 className="mb-6 text-center text-3xl font-bold">Feed de Comentários</h1>
+         <div className="md:overflow-y-scroll h-[35.625rem] max-h-[80vh] pr-5 
+         scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-slate-900">
+            {comentario.map((coment) => (
+               <ComentarioUnico comentario = {coment} key={coment._id}/>
+            ))}
+         </div>
       </div>
    )
 }
 
 export default FeedComentarios
-
