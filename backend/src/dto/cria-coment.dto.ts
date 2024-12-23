@@ -1,4 +1,5 @@
-import { IsDate, IsNotEmpty, IsOptional, IsString, IsIn } from 'class-validator';
+import { IsDate, IsNotEmpty, IsOptional, IsString, IsIn, IsDateString } from 'class-validator';
+import { Transform } from 'class-transformer';
 
 // Data object Transform
 export class CriaComentarioDTO {
@@ -7,8 +8,9 @@ export class CriaComentarioDTO {
    @IsNotEmpty()
    texto: string;
 
-   @IsDate()
+   // @IsDateString()
    @IsOptional()
+   @Transform(({ value }) => value ? new Date(value) : value) // Transforma a string em um objeto Date
    dataHora: Date;
 
    @IsOptional()

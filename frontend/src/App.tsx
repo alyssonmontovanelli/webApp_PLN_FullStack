@@ -1,5 +1,6 @@
 import StartComentario from "./components/StartComentario"
 import FeedComentarios from "./components/FeedComents"
+import Graficos from "./components/Graficos"
 
 function App() {
 
@@ -14,16 +15,17 @@ function App() {
 
       {/* Div Feed -> Feed de comentários / Gráfico*/}
       <div className="items-center">
-        
-        {/* Div 1.1 -> Bloco para recebimento do texto */}
-        {/* <div className="bg-slate-700">
-          <h1>DASDASDAS</h1>
-        </div> */}
 
         {/* FEED DE COMENTÁRIOS */}
         <div>
           <FeedComentarios />
         </div>
+      </div>
+
+              
+        {/* Div 1.1 -> Bloco para recebimento do texto */}
+      <div className="bg-slate-700">
+        <h1><Graficos /></h1>
       </div>
     </div>
   )

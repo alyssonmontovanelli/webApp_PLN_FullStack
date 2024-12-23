@@ -13,39 +13,55 @@ function StartComentario() {
    const [comentario, novoComentario] = useState({
       texto: "",
       sentimento: "Neutro",
-      dataHora: Date,
+      dataHora: new Date(),
    });
 
    const handleChange = (
       e: ChangeEvent < HTMLInputElement >
    ) => novoComentario({ ...comentario, [e.target.name] : e.target.value });
 
+   // const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+   //    e.preventDefault();
+   //    console.log(comentario);
+   //    const res = await createComentRequest(comentario);
+   //    const data = await res.json();
+   //    console.log("Agora em, vamos ver");
+   //    console.log(res)
+   //    console.log(data)
+   //    novoComentario({ ...comentario, texto: "" });
+   // }   
+
    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       console.log(comentario);
+   
+      // Envia o objeto diretamente com `dataHora` como Date
       const res = await createComentRequest(comentario);
       const data = await res.json();
       console.log("Agora em, vamos ver");
-      console.log(res)
-      console.log(data)
+      console.log(res);
+      console.log(data);
+   
+      // Reseta o texto do comentário após o envio
       novoComentario({ ...comentario, texto: "" });
-   }   
+   };
 
 
    // Retorno no HTML
    return(
-      <div className="relative max-w-5xl mx-auto p-10">
-         <h1 className="text-4xl text-center font-bold">
+      <div className="relative max-w-5xl mx-auto p-5 sm:p-10">
+         <h1 className="text-3xl text-center font-bold sm:text-5xl ">
             Análise de Sentimentos</h1>
          <p className="m-4 text-lg text-slate-400 text-center max-w-3xl 
-         mx-auto dark:text-slate-400">
+         mx-auto dark:text-slate-400 ">
             Escreva abaixo o seu comentário</p>
          
          <form onSubmit={handleSubmit} action="" className="justify-items-center">
             <input type="text" name="texto" value={comentario.texto}
             className="border-2 border-gray-700 p-3 rounded-3xl
-             bg-slate-800 block w-2/4 m-4 appearance-none
-             focus-within:ring-5 focus-within:ring-cyan-600 hover:ring-2 hover:ring-cyan-600"
+             bg-slate-800 block m-4 appearance-none
+             focus-within:ring-5 focus-within:ring-cyan-600 hover:ring-2 hover:ring-cyan-600
+             w-11/12 sm:w-7/12"
             placeholder="Escreva seu comentário..." 
             onChange={handleChange}/>
 
