@@ -26,8 +26,9 @@ function StartComentario() {
       const res = await createComentRequest(comentario);
       const data = await res.json();
       console.log("Agora em, vamos ver");
-      console.log
+      console.log(res)
       console.log(data)
+      novoComentario({ ...comentario, texto: "" });
    }   
 
 
@@ -41,7 +42,7 @@ function StartComentario() {
             Escreva abaixo o seu comentário</p>
          
          <form onSubmit={handleSubmit} action="" className="justify-items-center">
-            <input type="text" name="texto"
+            <input type="text" name="texto" value={comentario.texto}
             className="border-2 border-gray-700 p-3 rounded-3xl
              bg-slate-800 block w-2/4 m-4 appearance-none
              focus-within:ring-5 focus-within:ring-cyan-600 hover:ring-2 hover:ring-cyan-600"
