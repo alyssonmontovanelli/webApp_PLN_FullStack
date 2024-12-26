@@ -10,7 +10,7 @@ function ComentarioUnico({comentario}: Props) {
        key={comentario._id}>
          <div className='flex flex-col gap-6'>
             <div className="sm:flex-col items-center gap-x-8 rounded-2xl
-            bg-slate-800 p-3 md:flex-row">
+            bg-slate-800 p-3 md:flex-row max-sm:p-1">
                {/* Div para divisão de nome / sentimento */}
                <div className='text-center sm:flex'>
                   <h1 className='pb-1 font-bold sm:pr-5'>
