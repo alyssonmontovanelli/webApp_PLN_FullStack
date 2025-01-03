@@ -5,6 +5,8 @@ import { Comentario } from 'src/schemas/coments.schemas'
 // dto
 import { CriaComentarioDTO } from '../dto/cria-coment.dto'
 import { AlteraComentDTO } from '../dto/altera-coment.dto'
+// Conexão com FAST API
+import { SentimentoService } from './sentiment.service' //Sv de sentimento
 
 import { Model } from 'mongoose';
 
@@ -15,7 +17,8 @@ export class ComentsService {
 
    // Primeiramente declarar o construtor
    constructor(@InjectModel(Comentario.name) 
-   private comentarioModel: Model<Comentario>) {} 
+   private comentarioModel: Model<Comentario>,
+   private readonly sentimentoService: SentimentoService) {} // Novo serviço que foi injetado
 
    // Ver todos os comentários GET
    async findAll() {
@@ -40,8 +43,11 @@ export class ComentsService {
    // Criar comentarios POST - seguindo DTO de criar comentário
    async create(criaComentario: CriaComentarioDTO) {
       try {
-         if (!criaComentario.sentimento) {
-            criaComentario.sentimento = "Neutro";
+         // Chama o SentimentService para realizar a análise do texto
+         if (!criaComentario.sentimento && criaComentario.texto) {
+            criaComentario.sentimento = await this.sentimentoService.analisarSentimento(
+               criaComentario.texto
+            );
          }
          const novoComentario = new this.comentarioModel(criaComentario);
          return await novoComentario.save();
@@ -49,6 +55,23 @@ export class ComentsService {
          throw new Error(`Erro ao buscar os comentários: ${error.message}`)
       }
    }
+
+
+   // // Criar comentarios POST - seguindo DTO de criar comentário
+   // async create(criaComentario: CriaComentarioDTO) {
+   //    try {
+   //       if (!criaComentario.sentimento) {
+   //          criaComentario.sentimento = "Neutro";
+   //       }
+   //       const novoComentario = new this.comentarioModel(criaComentario);
+   //       return await novoComentario.save();
+   //    } catch (error) {
+   //       throw new Error(`Erro ao buscar os comentários: ${error.message}`)
+   //    }
+   // }
+
+
+
 
    // DELETE 
    async delete(id:string) {
