@@ -4,6 +4,16 @@ interface Props{
    comentario: Comentario
 }
 
+function gerarNomeAleatorio() {
+   const nome = ["Comentarista", "Digitador", "Anônimo", "Crítico", "Escritor", "Pensador"]
+   const sobrenome = ["Sincero", "Mentiroso", "Duvidoso", "Reflexivo", "Polêmico", "Curioso"]
+
+   const nomeAleatorio = nome[Math.floor(Math.random() * nome.length)]
+   const sobrenomeAleatorio = sobrenome[Math.floor(Math.random() * sobrenome.length)]
+
+   return `${nomeAleatorio} ${sobrenomeAleatorio}`
+}
+
 function ComentarioUnico({comentario}: Props) {
    return (
       <div className='mt-2'
@@ -14,7 +24,7 @@ function ComentarioUnico({comentario}: Props) {
                {/* Div para divisão de nome / sentimento */}
                <div className='text-center sm:flex'>
                   <h1 className='pb-1 font-bold sm:pr-5'>
-                     Comentarista Sincero
+                     {gerarNomeAleatorio()}
                   </h1>
                   {/* Condicional para estilizar cada comentário com base no sentimento */}
                   <p className= {`m-0 rounded-md px-3 py-1 text-xs font-bold ${

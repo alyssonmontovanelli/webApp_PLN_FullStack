@@ -33,7 +33,7 @@ function StartComentario() {
 
       // mudanca de estado na mensagem
       if (res.ok) {
-         setMensagemSucesso("Seu comentário foi registrado com sucesso");
+         setMensagemSucesso(`Comentário ${data.sentimento} registrado com sucesso.`);
       } else {
          setMensagemSucesso("Houve um problema ao registrar seu comentário, tente novamente")
       }
@@ -47,7 +47,7 @@ function StartComentario() {
       novoComentario({ ...comentario, texto: "" });
 
       // remove a mensagem após 3 segundos
-      setTimeout(() => setMensagemSucesso(null), 3000)
+      setTimeout(() => setMensagemSucesso(null), 4000)
    };
 
 
@@ -78,7 +78,7 @@ function StartComentario() {
          {mensagemSucesso && (
             <div
                 className="mx-auto mt-4 text-center w-11/12 sm:w-7/12 
-                p-3 rounded-lg bg-green-500 text-white font-semibold"
+                p-3 rounded-lg bg-slate-800 text-white font-semibold"
             >
                {mensagemSucesso}
             </div>
