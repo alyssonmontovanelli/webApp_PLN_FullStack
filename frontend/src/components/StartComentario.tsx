@@ -7,6 +7,7 @@ import { ChangeEvent, FormEvent, useState } from "react"
 // Conexão com backend
 import { createComentRequest } from '../api/api.comentarios'
 
+
 function StartComentario() {
 
    // Mudança de Estado de Comentario -> novoComentario
@@ -33,7 +34,7 @@ function StartComentario() {
 
       // mudanca de estado na mensagem
       if (res.ok) {
-         setMensagemSucesso(`Comentário ${data.sentimento} registrado com sucesso.`);
+         setMensagemSucesso(`Comentário ${data.sentimento} registrado com sucesso. Atualize a página.`);
       } else {
          setMensagemSucesso("Houve um problema ao registrar seu comentário, tente novamente")
       }
@@ -58,7 +59,7 @@ function StartComentario() {
             Análise de Sentimentos</h1>
          <p className="m-4 text-lg text-slate-400 text-center max-w-3xl 
          mx-auto dark:text-slate-400 ">
-            Escreva abaixo o seu comentário</p>
+            Qual a sua opnião sobre o cinema brasileiro?</p>
          
          <form onSubmit={handleSubmit} action="" className="justify-items-center">
             <input type="text" name="texto" value={comentario.texto}
@@ -78,7 +79,7 @@ function StartComentario() {
          {mensagemSucesso && (
             <div
                 className="mx-auto mt-4 text-center w-11/12 sm:w-7/12 
-                p-3 rounded-lg bg-slate-800 text-white font-semibold"
+                p-3 rounded-lg bg-cyan-600 text-white font-semibold"
             >
                {mensagemSucesso}
             </div>

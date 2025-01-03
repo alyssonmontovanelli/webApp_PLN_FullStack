@@ -24,7 +24,7 @@ function FeedComentarios() {
          });
    }, []);
    return (
-      <div className="relative max-w-5xl mx-auto p-3 sm:p-10 pt-5 lg:w-11/12">
+      <div className="relative max-w-5xl mx-auto p-3 sm:p-10 sm:pt-5 lg:w-11/12">
          <h1 className="mb-5 text-center text-3xl font-bold">Feed de Comentários</h1>
          <div className="overflow-y-scroll 
          sm:overflow-y-scroll h-[35.625rem] max-h-[80vh] pr-5 

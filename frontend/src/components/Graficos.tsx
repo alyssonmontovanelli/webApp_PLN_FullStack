@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Bar, Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement } from 'chart.js';
 import { getComentRequest } from '../api/api.comentarios'; // Atualizando o import com o caminho correto
@@ -75,8 +75,8 @@ const Graficos = () => {
 
   return (
     <div className='bg-slate-900'>
-      <h1 className="mb-6 text-center text-3xl font-bold pt-5">Gráfico de Indicadores</h1>
-      <div className="grafico-container flex justify-between w-full px-10 max-sm:flex-col">
+      <h1 className="mb-6 text-center text-3xl font-bold pt-6">Panorama de Indicadores</h1>
+      <div className="grafico-container flex justify-between w-full px-10 max-sm:flex-col max-sm:px-2">
 
          <div className="grafico-barra w-full sm:w-3/5 p-2 max-sm:w-11/12 max-sm:mx-auto">
          <h3 className="mb-4 text-center text-1xl text-slate-400">
@@ -85,7 +85,7 @@ const Graficos = () => {
          <Bar data={dadosBarra} options={{ responsive: true }} />
          </div>
 
-         <div className="grafico-pizza w-1/2 sm:w-2/5 p-2 max-sm:w-11/12">
+         <div className="grafico-pizza w-1/2 sm:w-2/5 p-2 max-sm:w-11/12 max-sm:mx-auto max-sm:mt-3">
          <h3 className="mb-4 text-center text-1xl text-slate-400">
             Porcentagem de Comentários por Sentimento
          </h3>
