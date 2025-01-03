@@ -30,4 +30,4 @@ def enviaPrevisao(input: TextoInput):
       sentimento = "Negativo"
 
    
-   return f"{probabilidade} - {sentimento_predict} - {probabilidade[0][0]} - {sentimento}"
+   return {"sentimento": sentimento}

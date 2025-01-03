@@ -20,17 +20,6 @@ function StartComentario() {
       e: ChangeEvent < HTMLInputElement >
    ) => novoComentario({ ...comentario, [e.target.name] : e.target.value });
 
-   // const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-   //    e.preventDefault();
-   //    console.log(comentario);
-   //    const res = await createComentRequest(comentario);
-   //    const data = await res.json();
-   //    console.log("Agora em, vamos ver");
-   //    console.log(res)
-   //    console.log(data)
-   //    novoComentario({ ...comentario, texto: "" });
-   // }   
-
    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       console.log(comentario);
