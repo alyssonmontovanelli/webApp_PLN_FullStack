@@ -16,6 +16,9 @@ function StartComentario() {
       dataHora: new Date(),
    });
 
+   // estado para mensagem de sucesso 
+   const [mensagemSucesso, setMensagemSucesso] = useState<string | null>(null);
+
    const handleChange = (
       e: ChangeEvent < HTMLInputElement >
    ) => novoComentario({ ...comentario, [e.target.name] : e.target.value });
@@ -27,12 +30,24 @@ function StartComentario() {
       // Envia o objeto diretamente com `dataHora` como Date
       const res = await createComentRequest(comentario);
       const data = await res.json();
+
+      // mudanca de estado na mensagem
+      if (res.ok) {
+         setMensagemSucesso("Seu comentário foi registrado com sucesso");
+      } else {
+         setMensagemSucesso("Houve um problema ao registrar seu comentário, tente novamente")
+      }
+
       console.log("Agora em, vamos ver");
       console.log(res);
       console.log(data);
+      console.log(data.sentimento)
    
       // Reseta o texto do comentário após o envio
       novoComentario({ ...comentario, texto: "" });
+
+      // remove a mensagem após 3 segundos
+      setTimeout(() => setMensagemSucesso(null), 3000)
    };
 
 
@@ -60,6 +75,16 @@ function StartComentario() {
              focus:ring-2 focus:ring-cyan-600/50 ">
                Enviar</button>
          </form>
+         {mensagemSucesso && (
+            <div
+                className="mx-auto mt-4 text-center w-11/12 sm:w-7/12 
+                p-3 rounded-lg bg-green-500 text-white font-semibold"
+            >
+               {mensagemSucesso}
+            </div>
+         )}
+
+
       </div>
    )
 }
