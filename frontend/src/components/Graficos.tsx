@@ -75,17 +75,17 @@ const Graficos = () => {
 
   return (
     <div className='bg-slate-900'>
-      <h1 className="mb-6 text-center text-3xl font-bold">Gráfico de Indicadores</h1>
-      <div className="grafico-container flex justify-between w-11/12 px-10 ">
+      <h1 className="mb-6 text-center text-3xl font-bold pt-5">Gráfico de Indicadores</h1>
+      <div className="grafico-container flex justify-between w-full px-10 max-sm:flex-col">
 
-         <div className="grafico-barra w-full sm:w-3/5 p-4">
+         <div className="grafico-barra w-full sm:w-3/5 p-2 max-sm:w-11/12 max-sm:mx-auto">
          <h3 className="mb-4 text-center text-1xl text-slate-400">
             Distribuição de Comentários por Sentimento
          </h3>
          <Bar data={dadosBarra} options={{ responsive: true }} />
          </div>
 
-         <div className="grafico-pizza w-1/2 sm:w-2/5 p-4">
+         <div className="grafico-pizza w-1/2 sm:w-2/5 p-2 max-sm:w-11/12">
          <h3 className="mb-4 text-center text-1xl text-slate-400">
             Porcentagem de Comentários por Sentimento
          </h3>

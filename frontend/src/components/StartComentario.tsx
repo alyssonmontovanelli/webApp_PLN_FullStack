@@ -50,7 +50,7 @@ function StartComentario() {
    // Retorno no HTML
    return(
       <div className="relative max-w-5xl mx-auto p-5 sm:p-10">
-         <h1 className="text-3xl text-center font-bold sm:text-5xl ">
+         <h1 className="text-3xl text-center pt-3 font-bold sm:text-5xl ">
             Análise de Sentimentos</h1>
          <p className="m-4 text-lg text-slate-400 text-center max-w-3xl 
          mx-auto dark:text-slate-400 ">

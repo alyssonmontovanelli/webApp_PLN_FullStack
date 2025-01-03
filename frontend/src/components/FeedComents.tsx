@@ -25,11 +25,11 @@ function FeedComentarios() {
    }, []);
    return (
       <div className="relative max-w-5xl mx-auto p-3 sm:p-10 pt-5 lg:w-11/12">
-         <h1 className="mb-6 text-center text-3xl font-bold">Feed de Comentários</h1>
+         <h1 className="mb-5 text-center text-3xl font-bold">Feed de Comentários</h1>
          <div className="overflow-y-scroll 
          sm:overflow-y-scroll h-[35.625rem] max-h-[80vh] pr-5 
          scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-slate-900
-         max-sm:h-[25.000rem]">
+         max-sm:h-[25.000rem] max-sm:pl-5">
             {comentario.map((coment) => (
                <ComentarioUnico comentario = {coment} key={coment._id}/>
             ))}
